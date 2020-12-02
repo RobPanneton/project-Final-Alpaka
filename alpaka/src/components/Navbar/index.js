@@ -19,7 +19,7 @@ const Navbar = () => {
       <NavOptionsWrapper>
         <NavList>
           <NavOption>Home</NavOption>
-          <NavOption>Events</NavOption>
+          <NavOption>Parties</NavOption>
           <NavOption>Artists</NavOption>
           <NavOption>Releases</NavOption>
           <NavOption>Merch</NavOption>
