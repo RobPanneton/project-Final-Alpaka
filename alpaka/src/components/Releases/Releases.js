@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const HomePage = () => {
+const Releases = () => {
   return (
     <Wrapper>
-      <Alpaka>ALPAKA: home</Alpaka>
+      <Alpaka>ALPAKA: releases page</Alpaka>
     </Wrapper>
   );
 };
@@ -28,4 +28,4 @@ const Alpaka = styled.h1`
   -webkit-text-fill-color: transparent;
 `;
 
-export default HomePage;
+export default Releases;

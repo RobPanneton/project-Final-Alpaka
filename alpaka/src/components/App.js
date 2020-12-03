@@ -4,6 +4,11 @@ import { GlobalStyle } from "../GlobalStyles";
 import { Route, Switch } from "react-router-dom";
 import Navbar from "./Navbar";
 import HomePage from "./HomePage/HomePage";
+import Events from "./Events/Events";
+import Artists from "./Artists/Artists";
+import Releases from "./Releases/Releases";
+import Merch from "./Merch/Merch";
+import About from "./About/About";
 
 function App() {
   return (
@@ -13,6 +18,21 @@ function App() {
       <Switch>
         <Route exact path="/">
           <HomePage />
+        </Route>
+        <Route exact path="/events">
+          <Events />
+        </Route>
+        <Route exact path="/artists">
+          <Artists />
+        </Route>
+        <Route exact path="/releases">
+          <Releases />
+        </Route>
+        <Route exact path="/merch">
+          <Merch />
+        </Route>
+        <Route exact path="/about">
+          <About />
         </Route>
       </Switch>
     </>
