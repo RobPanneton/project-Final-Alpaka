@@ -67,7 +67,7 @@ const ReleaseDiv = styled.div`
     color: ${COLORS.white};
     position: absolute;
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 400;
     top: calc(50% - (18px / 2));
     width: 100%;
@@ -78,7 +78,7 @@ const ReleaseDiv = styled.div`
 
   @keyframes slideIn {
     from {
-      transform: translateY(-300%);
+      transform: translateY(-1000%);
     }
     to {
       transform: translateY(0);
