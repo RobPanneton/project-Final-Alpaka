@@ -14,14 +14,9 @@ const About = () => {
       <DividerDiv></DividerDiv>
       <ContactWrapper>
         <form>
-          <label>
-            Full Name:
-            <input type="text" name="name" placeholder="Your Name" />
-          </label>
-          <label>
-            Email
-            <input type="text" name="email" placeholder="Your Email" />
-          </label>
+          <Input type="text" name="name" placeholder="Your Name" />
+
+          <Input type="text" name="email" placeholder="Your Email" />
           <textarea
             name="yourMessage"
             aria-invalid="false"
@@ -29,7 +24,7 @@ const About = () => {
             rows="10"
             cols="40"
           />
-          <input type="submit" name="submitForm" value="Submit Form" />
+          <Submit type="submit" name="submitForm" value="Submit Form" />
         </form>
       </ContactWrapper>
     </Wrapper>
@@ -66,20 +61,39 @@ const ContactWrapper = styled.div`
   flex-direction: column;
   align-items: right;
 
-  input {
-    background-color: #eaeaee;
-    color: black;
-  }
-
   textarea {
     background-color: #eaeaee;
     color: black;
+    margin-top: 24px;
+    padding: 6px 6px;
   }
 
   form {
     padding-top: 90px;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+  }
+`;
+
+const Input = styled.input`
+  background-color: #eaeaee;
+  color: black;
+  margin-top: 12px;
+  width: 260px;
+  padding: 6px 6px;
+`;
+
+const Submit = styled.input`
+  text-align: center;
+  margin-top: 24px;
+  padding: 6px 12px;
+  background-color: #eaeaee;
+  font-weight: 600;
+  border: none;
+
+  input {
+    margin-top: 24px;
   }
 `;
 
