@@ -60,7 +60,6 @@ const ReleaseDiv = styled.div`
   /* border: 1px solid ${COLORS.white}; */
   cursor: pointer;
   overflow: hidden;
-  padding-right: 1px;
 
   p {
     display: none;
