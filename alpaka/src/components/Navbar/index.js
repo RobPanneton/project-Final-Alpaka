@@ -33,6 +33,7 @@ const Navbar = () => {
 };
 
 const Wrapper = styled.div`
+  position: fixed;
   width: 100%;
   height: 100px;
   border-bottom: solid 4px ${COLORS.white};
@@ -43,6 +44,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   background-color: black;
   color: ${COLORS.white};
+  z-index: 999999999;
 `;
 
 const LogoAndNameWrapper = styled.div`
