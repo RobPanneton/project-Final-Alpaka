@@ -12,6 +12,7 @@ import About from "./About/About";
 import AdminPage from "./AdminPage/AdminIndex";
 
 function App() {
+  console.log(window.location.pathname);
   return (
     <>
       <GlobalStyle />

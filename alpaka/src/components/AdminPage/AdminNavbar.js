@@ -88,9 +88,16 @@ const NavOption = styled(NavLink)`
   color: ${COLORS.gray};
   width: 100%;
   text-align: left;
+  border-radius: 12px;
 
   &:hover {
-    text-decoration: underline;
+    background-color: ${COLORS.gray};
+    color: ${COLORS.white};
+  }
+
+  &.active {
+    background-color: ${COLORS.gray};
+    color: ${COLORS.white};
   }
 `;
 
