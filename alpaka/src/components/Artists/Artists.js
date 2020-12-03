@@ -19,7 +19,7 @@ const Artists = () => {
                 src={artist.picUrl}
                 alt={`Picture of ${artist.name}`}
               ></ArtistPhoto>
-              <p>{artist.name}</p>
+              <p onHover={(e) => e.stopPropagation()}>{artist.name}</p>
             </ArtistDiv>
           );
         })}
@@ -54,7 +54,7 @@ const ArtistGrid = styled.div`
   /* border: 1px solid #eaeaee; */
 `;
 
-const ArtistDiv = styled(Link)`
+const ArtistDiv = styled.div`
   width: calc(100% / 4);
   height: 189px;
   position: relative;
@@ -73,6 +73,7 @@ const ArtistDiv = styled(Link)`
     width: 100%;
     z-index: 2;
     text-shadow: 1px 2px slategray;
+    pointer-events: none;
   }
 
   @keyframes slideIn {
@@ -98,7 +99,7 @@ const ArtistPhoto = styled.img`
 
   &:hover {
     transform: scale(1.15);
-    opacity: 0.8;
+    opacity: 0.6;
   }
 `;
 
