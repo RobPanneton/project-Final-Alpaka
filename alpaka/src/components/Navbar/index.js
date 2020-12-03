@@ -18,12 +18,14 @@ const Navbar = () => {
 
       <NavOptionsWrapper>
         <NavList>
-          <NavOption>Home</NavOption>
-          <NavOption>Parties</NavOption>
-          <NavOption>Artists</NavOption>
-          <NavOption>Releases</NavOption>
-          <NavOption>Merch</NavOption>
-          <NavOption>About Us</NavOption>
+          <NavOption exact to="/">
+            Home
+          </NavOption>
+          <NavOption to="/events">Events</NavOption>
+          <NavOption to="/artists">Artists</NavOption>
+          <NavOption to="/releases">Releases</NavOption>
+          <NavOption to="/merch">Merch</NavOption>
+          <NavOption to="/about">About Us</NavOption>
         </NavList>
       </NavOptionsWrapper>
     </Wrapper>
@@ -83,9 +85,11 @@ const NavList = styled.ul`
   flex-direction: row;
 `;
 
-const NavOption = styled.li`
+const NavOption = styled(NavLink)`
   margin-left: 42px;
   font-weight: 600;
+  text-decoration: none;
+  color: ${COLORS.white};
 `;
 
 export default Navbar;
