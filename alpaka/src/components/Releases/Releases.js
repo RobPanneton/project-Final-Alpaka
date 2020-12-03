@@ -7,7 +7,22 @@ const Releases = () => {
   return (
     <Wrapper>
       <ReleasesHeader>Our Releases</ReleasesHeader>
-      <ReleasesGrid></ReleasesGrid>
+      <ReleasesGrid>
+        {releases.map((release, index) => {
+          return (
+            <ReleaseDiv
+              key={index}
+              onClick={() => window.open(release.soundUrl, "_blank")}
+            >
+              <ReleasePhoto
+                src={release.picUrl}
+                alt={`Picture of ${release.name}`}
+              ></ReleasePhoto>
+              <p onHover={(e) => e.stopPropagation()}>{release.name}</p>
+            </ReleaseDiv>
+          );
+        })}
+      </ReleasesGrid>
     </Wrapper>
   );
 };
@@ -35,12 +50,12 @@ const ReleasesGrid = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid #eaeaee;
+  /* border: 1px solid #eaeaee; */
 `;
 
 const ReleaseDiv = styled.div`
   width: calc(100% / 4);
-  height: 285px;
+  height: 275px;
   position: relative;
   /* border: 1px solid ${COLORS.white}; */
   cursor: pointer;
@@ -52,20 +67,21 @@ const ReleaseDiv = styled.div`
     color: ${COLORS.white};
     position: absolute;
     text-align: center;
-    font-size: 24px;
+    font-size: 12px;
+    font-weight: 400;
     top: calc(50% - (18px / 2));
     width: 100%;
     z-index: 2;
-    text-shadow: 1px 2px slategray;
+    text-shadow: 1px 1px slategray;
     pointer-events: none;
   }
 
   @keyframes slideIn {
     from {
-      transform: translateX(100%);
+      transform: translateY(-1000%);
     }
     to {
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
 
@@ -82,8 +98,8 @@ const ReleasePhoto = styled.img`
   transition: all ease 500ms;
 
   &:hover {
-    transform: scale(1.15);
-    opacity: 0.6;
+    transform: scale(1.05);
+    opacity: 0.8;
   }
 `;
 
