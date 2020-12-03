@@ -30,7 +30,7 @@ const Artists = () => {
 
 const Wrapper = styled.div`
   background-color: black;
-  padding: 152px 120px 0 120px;
+  padding: 152px 120px 50px 120px;
   width: 100%;
   text-align: center;
   display: flex;
@@ -61,6 +61,7 @@ const ArtistDiv = styled(Link)`
   /* border: 1px solid ${COLORS.white}; */
   cursor: pointer;
   overflow: hidden;
+  padding-right: 1px;
 
   p {
     display: none;
