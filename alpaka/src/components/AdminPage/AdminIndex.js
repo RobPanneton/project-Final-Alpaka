@@ -1,7 +1,13 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
+import AdminAbout from "./AdminAbout";
+import AdminArtists from "./AdminArtists";
+import AdminEvents from "./AdminEvents";
+import AdminHome from "./AdminHome";
+import AdminMerch from "./AdminMerch";
 import AdminNavbar from "./AdminNavbar";
+import AdminReleases from "./AdminReleases";
 import AdminWelcome from "./AdminWelcome";
 // import { COLORS } from "../../constants";
 // import { artists } from "./tempdata";
@@ -17,6 +23,24 @@ const AdminIndex = () => {
         <Switch>
           <Route exact path="/admin/">
             <AdminWelcome />
+          </Route>
+          <Route path="/admin/home">
+            <AdminHome />
+          </Route>
+          <Route path="/admin/events">
+            <AdminEvents />
+          </Route>
+          <Route path="/admin/artists">
+            <AdminArtists />
+          </Route>
+          <Route path="/admin/releases">
+            <AdminReleases />
+          </Route>
+          <Route path="/admin/merch">
+            <AdminMerch />
+          </Route>
+          <Route path="/admin/about">
+            <AdminAbout />
           </Route>
         </Switch>
       </AdminContent>

@@ -16,32 +16,39 @@ function App() {
     <>
       <GlobalStyle />
 
-      {window.location.pathname !== "/admin" && (
-        <>
-          <Navbar />
-        </>
-      )}
+      {window.location.pathname !== "/admin/" &&
+        window.location.pathname !== "/admin" &&
+        window.location.pathname !== "/admin/home" &&
+        window.location.pathname !== "/admin/events" &&
+        window.location.pathname !== "/admin/artists" &&
+        window.location.pathname !== "/admin/releases" &&
+        window.location.pathname !== "/admin/merch" &&
+        window.location.pathname !== "/admin/about" && (
+          <>
+            <Navbar />
+          </>
+        )}
 
       <Switch>
         <Route exact path="/">
           <HomePage />
         </Route>
-        <Route exact path="/events">
+        <Route path="/events">
           <Events />
         </Route>
-        <Route exact path="/artists">
+        <Route path="/artists">
           <Artists />
         </Route>
-        <Route exact path="/releases">
+        <Route path="/releases">
           <Releases />
         </Route>
-        <Route exact path="/merch">
+        <Route path="/merch">
           <Merch />
         </Route>
-        <Route exact path="/about">
+        <Route path="/about">
           <About />
         </Route>
-        <Route exact path="/admin">
+        <Route path="/admin">
           <AdminPage />
         </Route>
       </Switch>

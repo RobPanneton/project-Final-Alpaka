@@ -8,24 +8,20 @@ const AdminNavbar = () => {
   return (
     <Wrapper>
       <LogoAndNameWrapper>
-        <LogoWrapper exact to="/">
+        <LogoWrapper exact to="/admin/">
           <Logo src={deskLogo} alt="alpaka logo" />
         </LogoWrapper>
-        <AlpakaText exact to="/">
-          ALPAKA
-        </AlpakaText>
+        <AlpakaText>ALPAKA</AlpakaText>
       </LogoAndNameWrapper>
 
       <NavOptionsWrapper>
         <NavList>
-          <NavOption exact to="/">
-            Home
-          </NavOption>
-          <NavOption to="/events">Events</NavOption>
-          <NavOption to="/artists">Artists</NavOption>
-          <NavOption to="/releases">Releases</NavOption>
-          <NavOption to="/merch">Merch</NavOption>
-          <NavOption to="/about">About Us</NavOption>
+          <NavOption to="/admin/home">Home</NavOption>
+          <NavOption to="/admin/events">Events</NavOption>
+          <NavOption to="/admin/artists">Artists</NavOption>
+          <NavOption to="/admin/releases">Releases</NavOption>
+          <NavOption to="/admin/merch">Merch</NavOption>
+          <NavOption to="/admin/about">About Us</NavOption>
         </NavList>
       </NavOptionsWrapper>
     </Wrapper>
