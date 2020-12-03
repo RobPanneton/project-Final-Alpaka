@@ -9,12 +9,19 @@ import Artists from "./Artists/Artists";
 import Releases from "./Releases/Releases";
 import Merch from "./Merch/Merch";
 import About from "./About/About";
+import AdminPage from "./AdminPage/AdminIndex";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Navbar />
+
+      {window.location.pathname !== "/admin" && (
+        <>
+          <Navbar />
+        </>
+      )}
+
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -33,6 +40,9 @@ function App() {
         </Route>
         <Route exact path="/about">
           <About />
+        </Route>
+        <Route exact path="/admin">
+          <AdminPage />
         </Route>
       </Switch>
     </>
