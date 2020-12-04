@@ -33,7 +33,7 @@ const About = () => {
 
 const Wrapper = styled.div`
   background-color: black;
-  padding: 74px 90px 0 90px;
+  padding: 174px 120px 0 120px;
   width: 100%;
   height: 600px;
   text-align: center;
@@ -69,7 +69,6 @@ const ContactWrapper = styled.div`
   }
 
   form {
-    padding-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
