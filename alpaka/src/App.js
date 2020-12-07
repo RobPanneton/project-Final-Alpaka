@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import styled from "styled-components";
 import { GlobalStyle } from "./GlobalStyles";
-import { Route, Switch } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import HomePage from "./components/HomePage/HomePage";
 import Events from "./components/Events/Events";
@@ -10,9 +13,29 @@ import Releases from "./components/Releases/Releases";
 import Merch from "./components/Merch/Merch";
 import About from "./components/About/About";
 import AdminPage from "./components/AdminPage/AdminIndex";
+import { populateAboutContent } from "./actions";
 
 function App() {
-  console.log(window.location.pathname);
+  const dispatch = useDispatch();
+
+  const getAboutContent = async () => {
+    try {
+      const res = await fetch(`/api/about/get-text`);
+      console.log(res);
+      const json = await res.json();
+      console.log(json);
+      const content = json.data.content;
+      dispatch(populateAboutContent(content));
+    } catch (error) {
+      console.error(error);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    getAboutContent();
+  }, []);
+
   return (
     <>
       <GlobalStyle />
