@@ -69,8 +69,6 @@ const getArtistsContent = async (req, res) => {
 
     const result = await db.collection("artists").find().toArray();
 
-    console.log(result);
-
     res.status(200).json({
       status: 200,
       message: "Artists data retrieved",

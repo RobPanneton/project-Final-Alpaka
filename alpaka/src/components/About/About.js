@@ -31,7 +31,7 @@ const About = () => {
         </>
       ) : (
         <>
-          <h1>loading</h1>
+          <h1>loading...</h1>
         </>
       )}
     </Wrapper>

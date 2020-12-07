@@ -1,29 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { COLORS } from "../../constants";
-import { artists } from "./tempdata";
 
 const Artists = () => {
+  const artists = useSelector((state) => state?.content?.artists);
+  console.log(artists);
+
   return (
     <Wrapper>
       <Header>Label Producers</Header>
-      <ArtistGrid>
-        {artists.map((artist, index) => {
-          return (
-            <ArtistDiv
-              key={index}
-              onClick={() => window.open(artist.soundUrl, "_blank")}
-            >
-              <ArtistPhoto
-                src={artist.picUrl}
-                alt={`Picture of ${artist.name}`}
-              ></ArtistPhoto>
-              <p onHover={(e) => e.stopPropagation()}>{artist.name}</p>
-            </ArtistDiv>
-          );
-        })}
-      </ArtistGrid>
+      {artists ? (
+        <>
+          {" "}
+          <ArtistGrid>
+            {artists.map((artist, index) => {
+              return (
+                <ArtistDiv
+                  key={index}
+                  onClick={() => window.open(artist.soundUrl, "_blank")}
+                >
+                  <ArtistPhoto
+                    src={artist.picUrl}
+                    alt={`Picture of ${artist.name}`}
+                  ></ArtistPhoto>
+                  <p onHover={(e) => e.stopPropagation()}>{artist.name}</p>
+                </ArtistDiv>
+              );
+            })}
+          </ArtistGrid>
+        </>
+      ) : (
+        <>
+          <h1>loading...</h1>
+        </>
+      )}
     </Wrapper>
   );
 };

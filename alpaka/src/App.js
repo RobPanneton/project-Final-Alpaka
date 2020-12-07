@@ -13,7 +13,7 @@ import Releases from "./components/Releases/Releases";
 import Merch from "./components/Merch/Merch";
 import About from "./components/About/About";
 import AdminPage from "./components/AdminPage/AdminIndex";
-import { populateAboutContent } from "./actions";
+import { populateAboutContent, populateArtistsContent } from "./actions";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,9 +21,7 @@ function App() {
   const getAboutContent = async () => {
     try {
       const res = await fetch(`/api/about/get-text`);
-      console.log(res);
       const json = await res.json();
-      console.log(json);
       const content = json.data.content;
       dispatch(populateAboutContent(content));
     } catch (error) {
@@ -32,9 +30,24 @@ function App() {
     }
   };
 
+  const getArtistsContent = async () => {
+    try {
+      const res = await fetch(`/api/artists/get-content`);
+      const json = await res.json();
+      const content = json.data;
+      dispatch(populateArtistsContent(content));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     getAboutContent();
   }, []);
+
+  useEffect(() => {
+    getArtistsContent();
+  });
 
   return (
     <>
