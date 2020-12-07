@@ -1,5 +1,6 @@
 const { MongoClient } = require("mongodb");
 const assert = require("assert");
+const bodyParser = require("body-parser");
 
 require("dotenv").config();
 const { MONGO_URI } = process.env;
@@ -19,7 +20,7 @@ const createAboutText = async (req, res) => {
 
     const result = await db.collection("about").insertOne(req.body);
 
-    req.status(201).json({
+    res.status(201).json({
       status: 201,
       message: "The about text has been successfully added!",
       data: req.body,
@@ -36,7 +37,6 @@ const createAboutText = async (req, res) => {
 
 const getAboutText = async (req, res) => {
   const client = await MongoClient(MONGO_URI, options);
-
   try {
     await client.connect();
 
@@ -44,11 +44,10 @@ const getAboutText = async (req, res) => {
 
     const result = await db.collection("about").findOne({ _id: "text1" });
 
-    console.log(result);
-
     res.status(200).json({
       status: 200,
       message: "About text data retreived",
+      data: result,
     });
   } catch (err) {
     res.status(404).json({

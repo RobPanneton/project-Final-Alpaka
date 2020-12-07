@@ -1,41 +1,48 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const About = () => {
+  const aboutText = useSelector((state) => state?.content?.about);
+
   return (
     <Wrapper>
-      <AboutWrapper>
-        <p>
-          Founded in 2017, we are an event production company focused on
-          providing high quality events in Montreal's underground electronic
-          music scene. Producers of Fragments, Collision and Pulsar events.
-        </p>
-      </AboutWrapper>
-      <DividerDiv></DividerDiv>
-      <ContactWrapper>
-        <form>
-          <Input type="text" name="name" placeholder="Your Name" />
+      {aboutText ? (
+        <>
+          <AboutWrapper>
+            <p>{aboutText}</p>
+          </AboutWrapper>
+          <DividerDiv></DividerDiv>
+          <ContactWrapper>
+            <form>
+              <Input type="text" name="name" placeholder="Your Name" />
 
-          <Input type="text" name="email" placeholder="Your Email" />
-          <textarea
-            name="yourMessage"
-            aria-invalid="false"
-            placeholder="Your Message"
-            rows="10"
-            cols="40"
-          />
-          <Submit type="submit" name="submitForm" value="Submit Form" />
-        </form>
-      </ContactWrapper>
+              <Input type="text" name="email" placeholder="Your Email" />
+              <textarea
+                name="yourMessage"
+                aria-invalid="false"
+                placeholder="Your Message"
+                rows="10"
+                cols="40"
+              />
+              <Submit type="submit" name="submitForm" value="Submit Form" />
+            </form>
+          </ContactWrapper>
+        </>
+      ) : (
+        <>
+          <h1>loading</h1>
+        </>
+      )}
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   background-color: black;
-  padding: 174px 120px 0 120px;
+  padding: 174px 120px 0px 120px;
   width: 100%;
-  height: 600px;
+  height: 626px;
   text-align: center;
   display: flex;
 `;
