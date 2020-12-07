@@ -10,7 +10,9 @@ const PORT = 4000;
 express()
   .use(morgan("tiny"))
   .use(bodyParser.json())
+  .use(express.urlencoded({ extended: false }))
   .use(cors())
+  .use("/", express.static(__dirname + "/"))
 
   .get("*", (req, res) => {
     res.status(404).json({
