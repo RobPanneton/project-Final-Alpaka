@@ -4,7 +4,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
-const { createAboutText, getAboutText } = require("./handlers/handlers-index");
+const {
+  createAboutText,
+  getAboutText,
+  getArtistsContent,
+  addArtistContent,
+} = require("./handlers/handlers-index");
 
 const PORT = 4000;
 
@@ -18,6 +23,12 @@ express()
   .post("/api/about/add-text", createAboutText)
 
   .get("/api/about/get-text", getAboutText)
+
+  .get("/api/artists/get-content", getArtistsContent)
+
+  .post("/api/artists/add-artist", addArtistContent)
+
+  //////////////////////////////////
 
   .get("*", (req, res) => {
     res.status(404).json({
