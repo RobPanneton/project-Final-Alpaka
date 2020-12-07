@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { GlobalStyle } from "../GlobalStyles";
+import { GlobalStyle } from "./GlobalStyles";
 import { Route, Switch } from "react-router-dom";
-import Navbar from "./Navbar";
-import HomePage from "./HomePage/HomePage";
-import Events from "./Events/Events";
-import Artists from "./Artists/Artists";
-import Releases from "./Releases/Releases";
-import Merch from "./Merch/Merch";
-import About from "./About/About";
-import AdminPage from "./AdminPage/AdminIndex";
+import Navbar from "./components/Navbar";
+import HomePage from "./components/HomePage/HomePage";
+import Events from "./components/Events/Events";
+import Artists from "./components/Artists/Artists";
+import Releases from "./components/Releases/Releases";
+import Merch from "./components/Merch/Merch";
+import About from "./components/About/About";
+import AdminPage from "./components/AdminPage/AdminIndex";
 
 function App() {
   console.log(window.location.pathname);
