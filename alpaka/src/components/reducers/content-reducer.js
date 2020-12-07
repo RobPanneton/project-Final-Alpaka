@@ -1,4 +1,4 @@
-initialState = {
+const initialState = {
   home: null,
   events: null,
   artists: null,
@@ -9,6 +9,6 @@ initialState = {
 export const contentReducer = (state = initialState, action) => {
   switch (action.type) {
     default:
-      return;
+      return state;
   }
 };
