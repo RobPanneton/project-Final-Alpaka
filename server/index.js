@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
+const { createAboutText, getAboutText } = require("./handlers/handlers-index");
 
 const PORT = 4000;
 
@@ -13,6 +14,10 @@ express()
   .use(express.urlencoded({ extended: false }))
   .use(cors())
   .use("/", express.static(__dirname + "/"))
+
+  .post("/api/about/add-text", createAboutText)
+
+  .get("/api/about/get-text", getAboutText)
 
   .get("*", (req, res) => {
     res.status(404).json({
