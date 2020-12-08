@@ -4,13 +4,42 @@ import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
 
 const ReleasePage = () => {
-  const albumNum = 2028264062;
+  const iframeSrc =
+    "https://bandcamp.com/EmbeddedPlayer/album=2028264062/size=large/bgcol=333333/linkcol=ffffff/transparent=true/";
+  const href = "https://alpakamuzik.bandcamp.com/album/doppelg-nger-ep-2";
+  const bandCampTitle = "Doppelgänger EP by Crescendoll";
+
+  const producedBy = ["Ben Coda", "Crescendoll", "Someone Else"];
+  const remixedBy = [];
+
   return (
     <Wrapper>
       <InfoDiv>
         <InfoHeader>DOPPELÄNGER EP</InfoHeader>
-        <ProducedBy>Produced By:</ProducedBy>
-        <ArtistName>Crescendoll</ArtistName>
+        {producedBy.length ? (
+          <>
+            {" "}
+            <ProducedBy>Produced By:</ProducedBy>
+            <ProducerByList>
+              {producedBy.map((producer) => {
+                return <ArtistName>{producer}</ArtistName>;
+              })}
+            </ProducerByList>
+          </>
+        ) : null}
+
+        {remixedBy.length ? (
+          <>
+            {" "}
+            <ProducedBy>Remixed By:</ProducedBy>
+            <ProducerByList>
+              {remixedBy.map((producer) => {
+                return <ArtistName>{producer}</ArtistName>;
+              })}
+            </ProducerByList>
+          </>
+        ) : null}
+
         <CatNumber>
           catalog number: <span>ALPAK018</span>
         </CatNumber>
@@ -22,14 +51,9 @@ const ReleasePage = () => {
         </BuyLink>
       </InfoDiv>
       <PlayerDiv>
-        <IFrame
-          src={`https://bandcamp.com/EmbeddedPlayer/album=${albumNum}/size=large/bgcol=333333/linkcol=eaeaee/tracklist=true/transparent=true/`}
-          seamless
-        >
-          <a href="https://alpakamuzik.bandcamp.com/album/doppelg-nger-ep-2">
-            Doppelgänger EP by Crescendoll
-          </a>
-        </IFrame>
+        <iframe src={iframeSrc} seamless>
+          <a href={href}>{bandCampTitle}</a>
+        </iframe>
       </PlayerDiv>
     </Wrapper>
   );
@@ -61,7 +85,12 @@ const ProducedBy = styled.p`
   padding-top: 42px;
 `;
 
-const ArtistName = styled.p`
+const ProducerByList = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ArtistName = styled.li`
   font-size: 46px;
   font-weight: 800;
   padding-top: 24px;
@@ -94,9 +123,17 @@ const BuyLinkTop = styled(BuyLink)`
 const PlayerDiv = styled.div`
   width: 50%;
   padding: 0 23px;
+  padding-top: 0;
+  margin-top: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+
+  iframe {
+    border: 0 !important;
+    width: 350px !important;
+    height: 488px !important;
+    position: fixed !important;
+  }
 `;
 
 const IFrame = styled.iframe`
