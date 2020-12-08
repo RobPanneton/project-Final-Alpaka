@@ -5,7 +5,6 @@ import { COLORS } from "../../constants";
 
 const Artists = () => {
   const artists = useSelector((state) => state?.content?.artists);
-  console.log(artists);
 
   return (
     <Wrapper>
@@ -17,6 +16,7 @@ const Artists = () => {
             {artists.map((artist, index) => {
               return (
                 <ArtistDiv
+                  onHover={(e) => e.stopPropagation()}
                   key={index}
                   onClick={() => window.open(artist.soundUrl, "_blank")}
                 >
@@ -24,7 +24,7 @@ const Artists = () => {
                     src={artist.picUrl}
                     alt={`Picture of ${artist.name}`}
                   ></ArtistPhoto>
-                  <p onHover={(e) => e.stopPropagation()}>{artist.name}</p>
+                  <p>{artist.name}</p>
                 </ArtistDiv>
               );
             })}

@@ -66,7 +66,6 @@ const editAboutText = async (req, res) => {
   console.log(req.body.content);
 
   const newValue = { $set: { ...req.body } };
-  const id = { ...req.body.id };
 
   try {
     await client.connect();

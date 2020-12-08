@@ -10,6 +10,7 @@ import HomePage from "./components/HomePage/HomePage";
 import Events from "./components/Events/Events";
 import Artists from "./components/Artists/Artists";
 import Releases from "./components/Releases/Releases";
+import ReleasePage from "./components/Releases/ReleasePage";
 import Merch from "./components/Merch/Merch";
 import About from "./components/About/About";
 import AdminPage from "./components/AdminPage/AdminIndex";
@@ -76,8 +77,11 @@ function App() {
         <Route path="/artists">
           <Artists />
         </Route>
-        <Route path="/releases">
+        <Route exact path="/releases">
           <Releases />
+        </Route>
+        <Route path="/releases/:_id">
+          <ReleasePage />
         </Route>
         <Route path="/merch">
           <Merch />

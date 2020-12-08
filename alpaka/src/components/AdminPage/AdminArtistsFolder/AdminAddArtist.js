@@ -25,6 +25,10 @@ const AdminAddArtist = () => {
     });
   };
 
+  const setTheTab = () => {
+    setTab(!tab);
+  };
+
   const clearFields = () => {
     setName("");
     setPicUrl("");

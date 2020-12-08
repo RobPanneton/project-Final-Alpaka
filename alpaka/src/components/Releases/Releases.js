@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { releases } from "./tempdata";
 import { COLORS } from "../../constants";
 
@@ -12,13 +14,14 @@ const Releases = () => {
           return (
             <ReleaseDiv
               key={index}
-              onClick={() => window.open(release.soundUrl, "_blank")}
+              onHover={(e) => e.stopPropagation()}
+              to={`/releases/:_id`}
             >
               <ReleasePhoto
                 src={release.picUrl}
                 alt={`Picture of ${release.name}`}
               ></ReleasePhoto>
-              <p onHover={(e) => e.stopPropagation()}>{release.name}</p>
+              <p>{release.name}</p>
             </ReleaseDiv>
           );
         })}
@@ -53,7 +56,7 @@ const ReleasesGrid = styled.div`
   /* border: 1px solid #eaeaee; */
 `;
 
-const ReleaseDiv = styled.div`
+const ReleaseDiv = styled(NavLink)`
   width: calc(100% / 4);
   height: 275px;
   position: relative;
