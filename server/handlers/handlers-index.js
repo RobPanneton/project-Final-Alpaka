@@ -60,6 +60,39 @@ const getAboutText = async (req, res) => {
   client.close();
 };
 
+const editAboutText = async (req, res) => {
+  const client = await MongoClient(MONGO_URI, options);
+
+  console.log(req.body.content);
+
+  const newValue = { $set: { ...req.body } };
+  const id = { ...req.body.id };
+
+  try {
+    await client.connect();
+
+    const db = await client.db("alpaka");
+
+    const result = await db
+      .collection("about")
+      .updateOne({ _id: "text1" }, newValue);
+
+    res.status(200).json({
+      status: 200,
+      message: "About text data has been edited",
+      data: req.body,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 500,
+      message1: "failed to edit",
+      message2: err.message,
+    });
+  }
+
+  client.close();
+};
+
 const getArtistsContent = async (req, res) => {
   const client = await MongoClient(MONGO_URI, options);
   try {
@@ -112,6 +145,7 @@ const addArtistContent = async (req, res) => {
 module.exports = {
   createAboutText,
   getAboutText,
+  editAboutText,
   getArtistsContent,
   addArtistContent,
 };

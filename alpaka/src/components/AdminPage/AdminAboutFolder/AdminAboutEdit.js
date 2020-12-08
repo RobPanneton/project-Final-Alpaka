@@ -18,7 +18,16 @@ const AdminAboutEdit = () => {
   };
 
   const handleSubmit = () => {
-    return;
+    fetch(`/api/about/edit-text`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: "text1",
+        content: text,
+      }),
+    });
   };
   return (
     <Wrapper>

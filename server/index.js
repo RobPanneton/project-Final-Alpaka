@@ -7,6 +7,7 @@ const cors = require("cors");
 const {
   createAboutText,
   getAboutText,
+  editAboutText,
   getArtistsContent,
   addArtistContent,
 } = require("./handlers/handlers-index");
@@ -23,6 +24,8 @@ express()
   .post("/api/about/add-text", createAboutText)
 
   .get("/api/about/get-text", getAboutText)
+
+  .post("/api/about/edit-text", editAboutText)
 
   .get("/api/artists/get-content", getArtistsContent)
 
