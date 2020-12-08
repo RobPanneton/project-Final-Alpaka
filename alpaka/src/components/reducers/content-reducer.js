@@ -15,7 +15,6 @@ export const contentReducer = (state = initialState, action) => {
       };
 
     case "POPULATE_ARTISTS_CONTENT":
-      console.log(action.payload);
       return {
         ...state,
         artists: [...action.payload],

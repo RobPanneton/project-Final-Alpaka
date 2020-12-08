@@ -47,6 +47,7 @@ const Wrapper = styled.div`
 
 const LogoAndNameWrapper = styled.div`
   font-weight: 600;
+  text-align: center;
   /* display: flex;
   align-items: center; */
 `;

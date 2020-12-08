@@ -2,15 +2,13 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 import AdminAbout from "./AdminAbout";
-import AdminArtists from "./AdminArtists";
+import AdminArtists from "./AdminArtistsFolder/AdminArtists";
 import AdminEvents from "./AdminEvents";
 import AdminHome from "./AdminHome";
 import AdminMerch from "./AdminMerch";
 import AdminNavbar from "./AdminNavbar";
 import AdminReleases from "./AdminReleases";
 import AdminWelcome from "./AdminWelcome";
-// import { COLORS } from "../../constants";
-// import { artists } from "./tempdata";
 
 const AdminIndex = () => {
   return (
@@ -51,7 +49,6 @@ const AdminIndex = () => {
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  text-align: center;
 
   h1 {
     text-align: center;
