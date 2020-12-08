@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { COLORS } from "../../../constants";
+import { ADMIN } from "../adminConstants";
 
 const AdminAddArtist = () => {
   const [tab, setTab] = useState(false);
@@ -150,9 +151,9 @@ const UrlInput = styled.input`
 `;
 
 const Submit = styled.input`
-  padding: 12px 24px;
-  margin: 12px;
-  width: 100px;
+  padding: ${ADMIN.submitPadding};
+  margin: ${ADMIN.submitMargin};
+  width: ${ADMIN.submitWidth};
 `;
 
 export default AdminAddArtist;
