@@ -109,14 +109,14 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: ${COLORS.white};
   color: ${COLORS.gray};
-  padding: 18px 24px;
+  padding: ${ADMIN.wrapperPadding};
 `;
 
 const TabButton = styled.button`
-  padding: 12px 72px 12px 0px;
-  font-size: 18px;
-  border: none;
-  font-weight: 600;
+  padding: ${ADMIN.tabPadding};
+  font-size: ${ADMIN.tabFontSize};
+  border: ${ADMIN.tabBorder};
+  font-weight: ${ADMIN.tabFontWeight};
   background-color: ${COLORS.white};
 
   &:focus {
@@ -125,29 +125,31 @@ const TabButton = styled.button`
 `;
 
 const Form = styled.form`
-  padding: 8px 12px;
+  padding: ${ADMIN.formPadding};
   display: flex;
   flex-direction: column;
 `;
 
 const Label = styled.label`
-  margin-top: 12px;
+  margin-top: ${ADMIN.labelMarginTop};
 `;
 
 const NameInput = styled.input`
-  padding: 4px 8px;
-  width: 200px;
-  border-radius: 4px;
+  padding: ${ADMIN.inputPadding};
+  width: ${ADMIN.nameWidth};
+  border-radius: ${ADMIN.inputRadius};
+
+  margin-left: ${ADMIN.inputMarginLeft};
   border: 1px solid ${COLORS.gray};
-  margin-left: 6px;
 `;
 
 const UrlInput = styled.input`
-  padding: 4px 8px;
-  width: 400px;
-  border-radius: 4px;
+  padding: ${ADMIN.inputPadding};
+  width: ${ADMIN.urlWidth};
+  border-radius: ${ADMIN.inputRadius};
+
+  margin-left: ${ADMIN.inputMarginLeft};
   border: 1px solid ${COLORS.gray};
-  margin-left: 6px;
 `;
 
 const Submit = styled.input`

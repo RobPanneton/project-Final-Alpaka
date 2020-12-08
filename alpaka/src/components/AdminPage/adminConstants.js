@@ -14,13 +14,12 @@ export const ADMIN = {
   // input //
   inputRadius: "4px",
   inputMarginLeft: "6px",
+  inputPadding: "4px 8px",
   //name input//
-  namePadding: "4px 8px",
   nameWidth: "200px",
 
   ///////////////////
   // url input //
-  urlPadding: "4px 8px",
   urlWidth: "400px",
 
   //// submit ////
