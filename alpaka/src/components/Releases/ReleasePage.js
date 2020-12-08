@@ -103,6 +103,7 @@ const IFrame = styled.iframe`
   border: 0;
   width: 350px;
   height: 488px;
+  position: fixed;
 `;
 
 export default ReleasePage;
