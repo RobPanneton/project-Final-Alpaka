@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { COLORS } from "../../constants";
-import Material from "./material-ui-imports";
+import { COLORS } from "../../../constants";
+import AdminAboutEdit from "./AdminAboutEdit";
 
 const AdminAbout = () => {
   const [inputValue, setInputValue] = useState(null);
-
-  console.log(inputValue);
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -14,9 +12,10 @@ const AdminAbout = () => {
 
   return (
     <Wrapper>
-      <h1>admin: about</h1>
-      <NewButton>hello</NewButton>
-      <Material.Input onChange={(e) => handleChange(e)}></Material.Input>
+      <Header>Admin: About</Header>
+      <Divider></Divider>
+      <AdminAboutEdit />
+      <Divider></Divider>
     </Wrapper>
   );
 };
@@ -27,14 +26,19 @@ const Wrapper = styled.div`
   color: ${COLORS.gray};
 `;
 
-const NewButton = styled(Material.Button)`
-  background-color: black !important;
-  color: white;
+const Header = styled.div`
+  padding: 18px 24px;
 
-  &:hover {
-    background-color: black;
-    color: black;
+  h1 {
+    text-align: left !important;
+    font-size: 32px;
   }
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  background-color: ${COLORS.gray};
+  height: 4px;
 `;
 
 export default AdminAbout;

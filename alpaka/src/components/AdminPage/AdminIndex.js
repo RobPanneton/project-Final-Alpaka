@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import AdminAbout from "./AdminAbout";
+import AdminAbout from "./AdminAboutFolder/AdminAbout";
 import AdminArtists from "./AdminArtistsFolder/AdminArtists";
 import AdminEvents from "./AdminEvents";
 import AdminHome from "./AdminHome";

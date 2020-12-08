@@ -10,12 +10,6 @@ const AdminAddArtist = () => {
   const [soundUrl, setSoundUrl] = useState("");
   const [id, setId] = useState("");
 
-  console.log({ name: name, pic: picUrl, sound: soundUrl, id: id });
-
-  const setTheTab = () => {
-    setTab(!tab);
-  };
-
   const handleSubmit = () => {
     fetch(`/api/artists/add-artist`, {
       method: "POST",
