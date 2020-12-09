@@ -15,18 +15,6 @@ const ReleasePage = () => {
     if (releases) setRelease(releases.find((item) => item._id === _id));
   }, [releases]);
 
-  console.log(_id);
-  console.log(release);
-  console.log(releases);
-
-  const iframeSrc =
-    "https://bandcamp.com/EmbeddedPlayer/album=2028264062/size=large/bgcol=333333/linkcol=ffffff/transparent=true/";
-  const href = "https://alpakamuzik.bandcamp.com/album/doppelg-nger-ep-2";
-  const bandCampTitle = "Doppelgänger EP by Crescendoll";
-
-  const producedBy = ["Ben Coda", "Crescendoll", "Someone Else"];
-  const remixedBy = [];
-
   return (
     <Wrapper>
       {release ? (
