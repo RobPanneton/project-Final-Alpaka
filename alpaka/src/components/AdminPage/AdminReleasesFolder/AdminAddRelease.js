@@ -18,8 +18,6 @@ const AdminAddRelease = () => {
   const [producedBy, setProducedBy] = useState([]);
   const [remixedBy, setRemixedBy] = useState([]);
 
-  console.log({ producedBy: producedBy, remixedBy: remixedBy });
-  console.log(id);
   const setTheTab = () => {
     setTab(!tab);
   };
