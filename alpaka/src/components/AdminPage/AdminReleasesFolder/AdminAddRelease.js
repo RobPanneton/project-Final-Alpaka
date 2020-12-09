@@ -51,8 +51,7 @@ const AdminAddRelease = () => {
           <TabButton onClick={setTheTab}>Add a Release ▼</TabButton>
           <Form
             onSubmit={(e) => {
-              // e.preventDefault();
-              return;
+              e.preventDefault();
             }}
           >
             <Label>

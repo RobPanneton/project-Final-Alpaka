@@ -10,6 +10,10 @@ const options = {
   useUnifiedTopology: true,
 };
 
+//////////////////////////////////////////////////////
+/////////////////////// ABOUT ////////////////////////
+//////////////////////////////////////////////////////
+
 const createAboutText = async (req, res) => {
   const client = await MongoClient(MONGO_URI, options);
 
@@ -91,6 +95,10 @@ const editAboutText = async (req, res) => {
 
   client.close();
 };
+//////////////////////////////////////////////////////
+/////////////////////// ABOUT ////////////////////////
+/////////////////////// ARTISTS ////////////////////////
+//////////////////////////////////////////////////////
 
 const getArtistsContent = async (req, res) => {
   const client = await MongoClient(MONGO_URI, options);
@@ -140,6 +148,66 @@ const addArtistContent = async (req, res) => {
     });
   }
 };
+//////////////////////////////////////////////////////
+/////////////////////// ARTISTS ////////////////////////
+/////////////////////// RELEASES ////////////////////////
+//////////////////////////////////////////////////////
+
+const getReleasesContent = async (req, res) => {
+  const client = await MongoClient(MONGO_URI, options);
+  try {
+    await client.connect();
+
+    const db = await client.db("alpaka");
+
+    const result = await db.collection("releases").find().toArray();
+
+    res.status(200).json({
+      status: 200,
+      message: "Releases data retrieved",
+      data: result,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(404).json({
+      status: 404,
+      message1: "data not found",
+      message2: err.message,
+    });
+  }
+  client.close();
+};
+
+const addReleasesContent = async (req, res) => {
+  const client = await MongoClient(MONGO_URI, options);
+  try {
+    await client.connect();
+
+    const db = await client.db("alpaka");
+
+    const result = await db.collection("releases").insertOne(req.body);
+
+    res.status(201).json({
+      status: 201,
+      data: req.body,
+      message: "The release has been added!",
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 500,
+      data: req.body,
+      message: err.message,
+    });
+  }
+};
+
+const editReleaseContent = () => {
+  return;
+};
+
+//////////////////////////////////////////////////////
+/////////////////////// RELEASES ////////////////////////
+//////////////////////////////////////////////////////
 
 module.exports = {
   createAboutText,
@@ -147,4 +215,6 @@ module.exports = {
   editAboutText,
   getArtistsContent,
   addArtistContent,
+  getReleasesContent,
+  addReleasesContent,
 };

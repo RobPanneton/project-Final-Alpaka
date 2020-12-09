@@ -10,6 +10,8 @@ const {
   editAboutText,
   getArtistsContent,
   addArtistContent,
+  getReleasesContent,
+  addReleasesContent,
 } = require("./handlers/handlers-index");
 
 const PORT = 4000;
@@ -30,6 +32,10 @@ express()
   .get("/api/artists/get-content", getArtistsContent)
 
   .post("/api/artists/add-artist", addArtistContent)
+
+  .get("/api/releases/get-content", getReleasesContent)
+
+  .post("/api/releases/add-release", addReleasesContent)
 
   //////////////////////////////////
 
