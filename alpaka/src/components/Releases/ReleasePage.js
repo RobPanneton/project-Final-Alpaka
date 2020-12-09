@@ -96,6 +96,7 @@ const InfoDiv = styled.div`
 const InfoHeader = styled.h1`
   font-size: 52px;
   font-weight: 600;
+  text-shadow: 1px 1px 6px rgba(234, 234, 238, 0.8);
 `;
 
 const ProducedBy = styled.p`
@@ -113,6 +114,7 @@ const ArtistName = styled.li`
   font-size: 46px;
   font-weight: 800;
   padding-top: 24px;
+  text-shadow: 1px 1px 6px rgba(234, 234, 238, 0.8);
 `;
 
 const CatNumber = styled.p`
@@ -122,6 +124,7 @@ const CatNumber = styled.p`
   span {
     font-weight: 600;
     margin-left: 12px;
+    text-shadow: 1px 1px 6px rgba(234, 234, 238, 0.8);
   }
 `;
 
@@ -132,6 +135,7 @@ const BuyLink = styled.a`
   margin-top: 16px;
   &:hover {
     font-weight: 600;
+    text-shadow: 2px 2px 6px rgba(234, 234, 238, 0.8);
   }
 `;
 
