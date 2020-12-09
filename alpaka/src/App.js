@@ -14,7 +14,11 @@ import ReleasePage from "./components/Releases/ReleasePage";
 import Merch from "./components/Merch/Merch";
 import About from "./components/About/About";
 import AdminPage from "./components/AdminPage/AdminIndex";
-import { populateAboutContent, populateArtistsContent } from "./actions";
+import {
+  populateAboutContent,
+  populateArtistsContent,
+  populateReleasesContent,
+} from "./actions";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,13 +46,22 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    getAboutContent();
-  }, []);
+  const getReleasesContent = async () => {
+    try {
+      const res = await fetch(`/api/releases/get-content`);
+      const json = await res.json();
+      const content = json.data;
+      dispatch(populateReleasesContent(content));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
+    getAboutContent();
     getArtistsContent();
-  });
+    getReleasesContent();
+  }, []);
 
   return (
     <>

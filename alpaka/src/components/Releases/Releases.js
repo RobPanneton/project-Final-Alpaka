@@ -1,31 +1,37 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { releases } from "./tempdata";
 import { COLORS } from "../../constants";
 
 const Releases = () => {
+  const releases = useSelector((state) => state?.content?.releases);
+
   return (
     <Wrapper>
       <ReleasesHeader>Our Releases</ReleasesHeader>
-      <ReleasesGrid>
-        {releases.map((release, index) => {
-          return (
-            <ReleaseDiv
-              key={index}
-              onHover={(e) => e.stopPropagation()}
-              to={`/releases/${release._id}`}
-            >
-              <ReleasePhoto
-                src={release.picUrl}
-                alt={`Picture of ${release.name}`}
-              ></ReleasePhoto>
-              <p>{release.name}</p>
-            </ReleaseDiv>
-          );
-        })}
-      </ReleasesGrid>
+      {releases ? (
+        <>
+          <ReleasesGrid>
+            {releases.map((release, index) => {
+              return (
+                <ReleaseDiv
+                  key={index}
+                  onHover={(e) => e.stopPropagation()}
+                  to={`/releases/${release._id}`}
+                >
+                  <ReleasePhoto
+                    src={release.picUrl}
+                    alt={`Picture of ${release.name}`}
+                  ></ReleasePhoto>
+                  <p>{release.albumName}</p>
+                </ReleaseDiv>
+              );
+            })}
+          </ReleasesGrid>
+        </>
+      ) : null}
     </Wrapper>
   );
 };

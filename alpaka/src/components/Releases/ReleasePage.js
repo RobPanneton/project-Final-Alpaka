@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
 
 const ReleasePage = () => {
+  const { _id } = useParams();
+
+  const [release, setRelease] = useState(null);
+
+  const releases = useSelector((state) => state?.content?.releases);
+
+  useEffect(() => {
+    if (releases) setRelease(releases.find((item) => item._id === _id));
+  }, [releases]);
+
+  console.log(_id);
+  console.log(release);
+  console.log(releases);
+
   const iframeSrc =
     "https://bandcamp.com/EmbeddedPlayer/album=2028264062/size=large/bgcol=333333/linkcol=ffffff/transparent=true/";
   const href = "https://alpakamuzik.bandcamp.com/album/doppelg-nger-ep-2";
@@ -14,47 +29,51 @@ const ReleasePage = () => {
 
   return (
     <Wrapper>
-      <InfoDiv>
-        <InfoHeader>DOPPELÄNGER EP</InfoHeader>
-        {producedBy.length ? (
-          <>
-            {" "}
-            <ProducedBy>Produced By:</ProducedBy>
-            <ProducerByList>
-              {producedBy.map((producer) => {
-                return <ArtistName>{producer}</ArtistName>;
-              })}
-            </ProducerByList>
-          </>
-        ) : null}
+      {release ? (
+        <>
+          <InfoDiv>
+            <InfoHeader>{release.albumName}</InfoHeader>
+            {release.producedBy.length ? (
+              <>
+                {" "}
+                <ProducedBy>Produced By:</ProducedBy>
+                <ProducerByList>
+                  {release.producedBy.map((producer) => {
+                    return <ArtistName>{producer}</ArtistName>;
+                  })}
+                </ProducerByList>
+              </>
+            ) : null}
 
-        {remixedBy.length ? (
-          <>
-            {" "}
-            <ProducedBy>Remixed By:</ProducedBy>
-            <ProducerByList>
-              {remixedBy.map((producer) => {
-                return <ArtistName>{producer}</ArtistName>;
-              })}
-            </ProducerByList>
-          </>
-        ) : null}
+            {release.remixedBy.length ? (
+              <>
+                {" "}
+                <ProducedBy>Remixed By:</ProducedBy>
+                <ProducerByList>
+                  {release.remixedBy.map((producer) => {
+                    return <ArtistName>{producer}</ArtistName>;
+                  })}
+                </ProducerByList>
+              </>
+            ) : null}
 
-        <CatNumber>
-          catalog number: <span>ALPAK018</span>
-        </CatNumber>
-        <BuyLinkTop href="https://alpakamuzik.bandcamp.com/album/doppelg-nger-ep-2">
-          Click here to buy on Bandcamp
-        </BuyLinkTop>
-        <BuyLink href="https://www.beatport.com/release/doppelg-nger-ep/3107464">
-          Click here to buy on Beatport
-        </BuyLink>
-      </InfoDiv>
-      <PlayerDiv>
-        <iframe src={iframeSrc} seamless>
-          <a href={href}>{bandCampTitle}</a>
-        </iframe>
-      </PlayerDiv>
+            <CatNumber>
+              catalog number: <span>{release._id}</span>
+            </CatNumber>
+            <BuyLinkTop href={release.bandcampUrl}>
+              Click here to buy on Bandcamp
+            </BuyLinkTop>
+            <BuyLink href={release.beatportUrl}>
+              Click here to buy on Beatport
+            </BuyLink>
+          </InfoDiv>
+          <PlayerDiv>
+            <iframe src={release.bandcampiFrameUrl} seamless>
+              <a href={release.bandcampHref}>{release.bandcampName}</a>
+            </iframe>
+          </PlayerDiv>
+        </>
+      ) : null}
     </Wrapper>
   );
 };

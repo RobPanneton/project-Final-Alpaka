@@ -20,6 +20,12 @@ export const contentReducer = (state = initialState, action) => {
         artists: [...action.payload],
       };
 
+    case "POPULATE_RELEASES_CONTENT":
+      return {
+        ...state,
+        releases: [...action.payload],
+      };
+
     default:
       return state;
   }
