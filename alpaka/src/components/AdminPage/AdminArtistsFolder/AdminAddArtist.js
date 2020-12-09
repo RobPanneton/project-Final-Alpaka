@@ -120,6 +120,10 @@ const TabButton = styled.button`
   &:focus {
     outline: 0;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Form = styled.form`

@@ -7,7 +7,7 @@ import AdminEvents from "./AdminEvents";
 import AdminHome from "./AdminHome";
 import AdminMerch from "./AdminMerch";
 import AdminNavbar from "./AdminNavbar";
-import AdminReleases from "./AdminReleases";
+import AdminReleases from "./AdminReleasesFolder/AdminReleases";
 import AdminWelcome from "./AdminWelcome";
 
 const AdminIndex = () => {
