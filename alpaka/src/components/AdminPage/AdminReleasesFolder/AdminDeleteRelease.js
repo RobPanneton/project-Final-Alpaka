@@ -4,30 +4,27 @@ import styled from "styled-components";
 import { COLORS } from "../../../constants";
 import { ADMIN } from "../adminConstants";
 
-const AdminEditArtist = () => {
-  const artists = useSelector((state) => state?.content?.artists);
+const AdminDeleteRelease = () => {
+  const releases = useSelector((state) => state?.content?.releases);
 
   const [tab, setTab] = useState(false);
   const [name, setName] = useState("");
-  const [picUrl, setPicUrl] = useState("");
-  const [soundUrl, setSoundUrl] = useState("");
   const [id, setId] = useState("");
   const [select, setSelect] = useState(null);
   const [item, setItem] = useState(null);
 
   const handleSubmit = () => {
-    fetch(`/api/artists/edit-artist`, {
-      method: "POST",
+    fetch(`/api/releases/delete-release`, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         _id: id,
-        name: name,
-        picUrl: picUrl,
-        soundUrl: soundUrl,
       }),
     });
+    setItem(null);
+    setSelect(null);
   };
 
   const setTheTab = () => {
@@ -35,41 +32,29 @@ const AdminEditArtist = () => {
   };
 
   useEffect(() => {
-    if (select) setItem(artists.find((artist) => artist.name === select));
+    if (select) setItem(releases.find((release) => release._id === select));
   }, [select]);
 
   useEffect(() => {
     if (item) {
-      setName(item.name);
-      setPicUrl(item.picUrl);
-      setSoundUrl(item.soundUrl);
+      setName(item.bandcampName);
       setId(item._id);
     }
   }, [item]);
-
-  useEffect(() => {
-    if (name)
-      setId(
-        name
-          .split(" ")
-          .map((word, index) => {
-            if (index === 0) return word.toLowerCase();
-            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-          })
-          .join("")
-      );
-    if (name === "") setId("");
-  }, [name]);
 
   return (
     <Wrapper>
       {tab ? (
         <>
-          <TabButton onClick={setTheTab}>Edit an Artist ▼</TabButton>
+          <TabButton onClick={setTheTab}>Delete a Release ▼</TabButton>
           <Select onChange={(e) => setSelect(e.target.value)}>
             <option value={null}>Select</option>
-            {artists.map((artist) => {
-              return <option value={artist.name}>{artist.name}</option>;
+            {releases.map((release) => {
+              return (
+                <option value={release._id}>
+                  {release._id} - {release.albumName}
+                </option>
+              );
             })}
           </Select>
           {item ? (
@@ -83,47 +68,15 @@ const AdminEditArtist = () => {
               >
                 <Label>
                   Name:
-                  <NameInput
-                    type="text"
-                    value={name}
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
-                  ></NameInput>
-                </Label>
-                <Label>
-                  Picture URL:
-                  <UrlInput
-                    type="text"
-                    value={picUrl}
-                    onChange={(e) => {
-                      setPicUrl(e.target.value);
-                    }}
-                  ></UrlInput>
-                </Label>
-                <Label>
-                  Soundcloud URL:
-                  <UrlInput
-                    type="text"
-                    value={soundUrl}
-                    onChange={(e) => {
-                      setSoundUrl(e.target.value);
-                    }}
-                  ></UrlInput>
+                  <span>{name}</span>
                 </Label>
                 <Label>
                   Id:
-                  <NameInput
-                    type="text"
-                    value={id}
-                    onChange={(e) => {
-                      setId(e.target.value);
-                    }}
-                  ></NameInput>
+                  <span>{id}</span>
                 </Label>
                 <Submit
                   type="submit"
-                  value="Edit"
+                  value="Delete"
                   onClick={handleSubmit}
                 ></Submit>
               </Form>
@@ -132,7 +85,7 @@ const AdminEditArtist = () => {
         </>
       ) : (
         <>
-          <TabButton onClick={setTheTab}>Edit an Artist ►</TabButton>
+          <TabButton onClick={setTheTab}>Delete a Release ►</TabButton>
         </>
       )}
     </Wrapper>
@@ -144,6 +97,10 @@ const Wrapper = styled.div`
   background-color: ${COLORS.white};
   color: ${COLORS.gray};
   padding: ${ADMIN.wrapperPadding};
+`;
+
+const Select = styled.select`
+  padding: 2px;
 `;
 
 const TabButton = styled.button`
@@ -162,10 +119,6 @@ const TabButton = styled.button`
   }
 `;
 
-const Select = styled.select`
-  padding: 2px;
-`;
-
 const Form = styled.form`
   padding: ${ADMIN.formPadding};
   display: flex;
@@ -174,6 +127,12 @@ const Form = styled.form`
 
 const Label = styled.label`
   margin-top: ${ADMIN.labelMarginTop};
+
+  span {
+    font-size: ${ADMIN.tabFontSize};
+    font-weight: ${ADMIN.tabFontWeight};
+    margin-left: 12px;
+  }
 `;
 
 const NameInput = styled.input`
@@ -200,4 +159,4 @@ const Submit = styled.input`
   width: ${ADMIN.submitWidth};
 `;
 
-export default AdminEditArtist;
+export default AdminDeleteRelease;

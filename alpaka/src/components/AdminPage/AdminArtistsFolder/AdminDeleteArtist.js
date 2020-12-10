@@ -47,12 +47,12 @@ const AdminDeleteArtist = () => {
       {tab ? (
         <>
           <TabButton onClick={setTheTab}>Delete an Artist ▼</TabButton>
-          <select onChange={(e) => setSelect(e.target.value)}>
+          <Select onChange={(e) => setSelect(e.target.value)}>
             <option value={null}>Select</option>
             {artists.map((artist) => {
               return <option value={artist.name}>{artist.name}</option>;
             })}
-          </select>
+          </Select>
           {item ? (
             <>
               {" "}
@@ -115,6 +115,10 @@ const Form = styled.form`
   padding: ${ADMIN.formPadding};
   display: flex;
   flex-direction: column;
+`;
+
+const Select = styled.select`
+  padding: 2px;
 `;
 
 const Label = styled.label`

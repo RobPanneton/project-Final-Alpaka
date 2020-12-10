@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { COLORS } from "../../../constants";
 import AdminAddRelease from "./AdminAddRelease";
+import AdminDeleteRelease from "./AdminDeleteRelease";
+import AdminEditRelease from "./AdminEditRelease";
 
 const AdminReleases = () => {
   return (
@@ -12,6 +14,10 @@ const AdminReleases = () => {
 
       <Divider></Divider>
       <AdminAddRelease />
+      <Divider></Divider>
+      <AdminEditRelease />
+      <Divider></Divider>
+      <AdminDeleteRelease />
       <Divider></Divider>
     </Wrapper>
   );
