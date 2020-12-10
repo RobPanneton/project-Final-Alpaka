@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { COLORS } from "../../../constants";
 import { ADMIN } from "../adminConstants";
@@ -35,6 +35,20 @@ const AdminAddArtist = () => {
     setSoundUrl("");
     setId("");
   };
+
+  useEffect(() => {
+    if (name)
+      setId(
+        name
+          .split(" ")
+          .map((word, index) => {
+            if (index === 0) return word.toLowerCase();
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+          })
+          .join("")
+      );
+    if (name === "") setId("");
+  }, [name]);
 
   return (
     <Wrapper>

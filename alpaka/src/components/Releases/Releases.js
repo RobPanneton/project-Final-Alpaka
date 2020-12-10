@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
@@ -7,23 +7,13 @@ import { COLORS } from "../../constants";
 const Releases = () => {
   const releases = useSelector((state) => state?.content?.releases);
 
-  const [reversedReleases, setReversedReleases] = useState(null);
-
-  useEffect(() => {
-    if (releases) {
-      let newArr = [];
-      for (let i = releases.length - 1; i >= 0; i--) newArr.push(releases[i]);
-      setReversedReleases(newArr);
-    }
-  }, [releases]);
-
   return (
     <Wrapper>
       <ReleasesHeader>Our Releases</ReleasesHeader>
-      {reversedReleases ? (
+      {releases ? (
         <>
           <ReleasesGrid>
-            {reversedReleases.map((release, index) => {
+            {releases.map((release, index) => {
               return (
                 <ReleaseDiv
                   key={index}

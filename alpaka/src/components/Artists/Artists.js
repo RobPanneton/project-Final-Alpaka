@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { COLORS } from "../../constants";
@@ -6,27 +6,14 @@ import { COLORS } from "../../constants";
 const Artists = () => {
   const artists = useSelector((state) => state?.content?.artists);
 
-  const [orderedArtists, setOrderedArtists] = useState(null);
-
-  useEffect(() => {
-    if (artists)
-      setOrderedArtists(
-        artists.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
-      );
-  }, [artists]);
-
-  useEffect(() => {
-    console.log(orderedArtists);
-  }, [orderedArtists]);
-
   return (
     <Wrapper>
       <Header>Label Producers</Header>
-      {orderedArtists ? (
+      {artists ? (
         <>
           {" "}
           <ArtistGrid>
-            {orderedArtists.map((artist, index) => {
+            {artists.map((artist, index) => {
               return (
                 <ArtistDiv
                   onHover={(e) => e.stopPropagation()}

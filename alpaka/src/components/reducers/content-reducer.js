@@ -15,15 +15,21 @@ export const contentReducer = (state = initialState, action) => {
       };
 
     case "POPULATE_ARTISTS_CONTENT":
+      const sortedArr = action.payload.sort((a, b) =>
+        a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+      );
       return {
         ...state,
-        artists: [...action.payload],
+        artists: [...sortedArr],
       };
 
     case "POPULATE_RELEASES_CONTENT":
+      let reversedArr = [];
+      for (let i = action.payload.length - 1; i >= 0; i--)
+        reversedArr.push(action.payload[i]);
       return {
         ...state,
-        releases: [...action.payload],
+        releases: [...reversedArr],
       };
 
     default:
