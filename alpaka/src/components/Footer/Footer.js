@@ -11,6 +11,7 @@ const Footer = () => {
 };
 
 const Wrapper = styled.div`
+  padding: 0 50px;
   width: 100%;
   height: 50px;
   background-color: black;
