@@ -107,7 +107,19 @@ function App() {
           <AdminPage />
         </Route>
       </Switch>
-      <Footer />
+
+      {window.location.pathname !== "/admin/" &&
+        window.location.pathname !== "/admin" &&
+        window.location.pathname !== "/admin/home" &&
+        window.location.pathname !== "/admin/events" &&
+        window.location.pathname !== "/admin/artists" &&
+        window.location.pathname !== "/admin/releases" &&
+        window.location.pathname !== "/admin/merch" &&
+        window.location.pathname !== "/admin/about" && (
+          <>
+            <Footer />
+          </>
+        )}
     </>
   );
 }

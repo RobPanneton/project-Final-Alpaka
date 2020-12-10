@@ -48,12 +48,12 @@ const Footer = () => {
         <GoogleLogout
           clientId="100955367280-fd988kfre41tuploslufrh8ik7eg1at0.apps.googleusercontent.com"
           render={(renderProps) => (
-            <button onClick={renderProps.onClick} style={blackoutLog}>
+            <button onClick={(renderProps.onClick, logout)} style={blackoutLog}>
               Logout
             </button>
           )}
           buttonText="Logout"
-          onLogoutSuccess={logout}
+          //   onLogoutSuccess={logout}
         ></GoogleLogout>
       </div>
     </Wrapper>
