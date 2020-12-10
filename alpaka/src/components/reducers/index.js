@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import { adminReducer as admin } from "./admin-reducer";
+import { userReducer as user } from "./user-reducer";
 import { contentReducer as content } from "./content-reducer";
 
-export default combineReducers({ admin, content });
+export default combineReducers({ user, content });

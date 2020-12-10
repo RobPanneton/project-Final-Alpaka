@@ -19,6 +19,7 @@ import {
   populateArtistsContent,
   populateReleasesContent,
 } from "./actions";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -106,6 +107,7 @@ function App() {
           <AdminPage />
         </Route>
       </Switch>
+      <Footer />
     </>
   );
 }
