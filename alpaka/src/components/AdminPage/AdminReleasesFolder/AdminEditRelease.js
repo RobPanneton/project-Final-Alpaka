@@ -25,7 +25,7 @@ const AdminEditRelease = () => {
   const [item, setItem] = useState(null);
 
   const handleSubmit = () => {
-    fetch(`/api/releases/edit-release`, {
+    fetch(`/api/releases/edit-release/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -276,7 +276,7 @@ const AdminEditRelease = () => {
         </>
       ) : (
         <>
-          <TabButton onClick={setTheTab}>Edit an Artist ►</TabButton>
+          <TabButton onClick={setTheTab}>Edit a Release ►</TabButton>
         </>
       )}
     </Wrapper>

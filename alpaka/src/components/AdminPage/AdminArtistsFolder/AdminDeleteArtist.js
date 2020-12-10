@@ -14,14 +14,8 @@ const AdminDeleteArtist = () => {
   const [item, setItem] = useState(null);
 
   const handleSubmit = () => {
-    fetch(`/api/artists/delete-artist`, {
+    fetch(`/api/artists/delete-artist/${id}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: id,
-      }),
     });
     setItem(null);
     setSelect(null);

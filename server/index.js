@@ -39,15 +39,15 @@ express()
 
   .post("/api/artists/edit-artist/:id", editArtistContent)
 
-  .delete("/api/artists/delete-artist", deleteArtistContent)
+  .delete("/api/artists/delete-artist/:id", deleteArtistContent)
 
   .get("/api/releases/get-content", getReleasesContent)
 
   .post("/api/releases/add-release", addReleasesContent)
 
-  .post("/api/releases/edit-release", editReleaseContent)
+  .post("/api/releases/edit-release/:id", editReleaseContent)
 
-  .delete("/api/releases/delete-release", deleteReleaseContent)
+  .delete("/api/releases/delete-release/:id", deleteReleaseContent)
   //////////////////////////////////
 
   .get("*", (req, res) => {

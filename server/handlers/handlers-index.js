@@ -155,8 +155,6 @@ const editArtistContent = async (req, res) => {
   const query = { id };
 
   let bodyObject = { ...req.body };
-  console.log(bodyObject);
-  console.log(id);
 
   const newValues = { $set: { ...bodyObject } };
 
@@ -189,14 +187,18 @@ const editArtistContent = async (req, res) => {
 
 const deleteArtistContent = async (req, res) => {
   const client = await MongoClient(MONGO_URI, options);
-  const id = req.params.id;
+  const id = req.params;
+
+  console.log(id);
 
   try {
     await client.connect();
 
     const db = await client.db("alpaka");
 
-    const result = await db.collection("artists").deleteOne({ id });
+    const result = await db.collection("artists").deleteOne(id);
+
+    assert.equal(1, result.deletedCount);
 
     res.status(204).json({
       status: 204,
@@ -207,11 +209,11 @@ const deleteArtistContent = async (req, res) => {
     res.status(500).json({
       status: 500,
       message: "failure",
+      message1: err.message,
     });
   }
 
   await client.close();
-  connect.client();
 };
 //////////////////////////////////////////////////////
 /////////////////////// ARTISTS ////////////////////////
@@ -268,7 +270,7 @@ const addReleasesContent = async (req, res) => {
 
 const editReleaseContent = async (req, res) => {
   const client = await MongoClient(MONGO_URI, options);
-  const id = req.body.id;
+  const id = req.params;
   const query = { id };
 
   let bodyObject = { ...req.body };

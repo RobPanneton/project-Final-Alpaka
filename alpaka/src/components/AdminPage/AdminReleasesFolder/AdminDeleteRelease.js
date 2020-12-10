@@ -14,14 +14,8 @@ const AdminDeleteRelease = () => {
   const [item, setItem] = useState(null);
 
   const handleSubmit = () => {
-    fetch(`/api/releases/delete-release`, {
+    fetch(`/api/releases/delete-release/${id}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: id,
-      }),
     });
     setItem(null);
     setSelect(null);
