@@ -12,7 +12,10 @@ const AdminAbout = () => {
 
   return (
     <Wrapper>
-      <Header>Admin: About</Header>
+      <Header>
+        <h1>Admin: About</h1>
+      </Header>
+
       <Divider></Divider>
       <AdminAboutEdit />
       <Divider></Divider>
