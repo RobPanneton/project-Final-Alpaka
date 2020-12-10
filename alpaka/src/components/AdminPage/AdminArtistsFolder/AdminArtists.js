@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { COLORS } from "../../../constants";
 import AdminAddArtist from "./AdminAddArtist";
+import AdminDeleteArtist from "./AdminDeleteArtist";
+import AdminEditArtist from "./AdminEditArtist";
 
 const AdminArtists = () => {
   return (
@@ -12,6 +14,10 @@ const AdminArtists = () => {
 
       <Divider></Divider>
       <AdminAddArtist />
+      <Divider></Divider>
+      <AdminEditArtist />
+      <Divider></Divider>
+      <AdminDeleteArtist />
       <Divider></Divider>
     </Wrapper>
   );
