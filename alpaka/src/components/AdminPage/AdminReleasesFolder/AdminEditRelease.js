@@ -31,7 +31,7 @@ const AdminEditRelease = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        _id: id,
+        id: id,
         albumName: albumName,
         producedBy: producedBy,
         remixedBy: remixedBy,
@@ -51,12 +51,12 @@ const AdminEditRelease = () => {
   };
 
   useEffect(() => {
-    if (select) setItem(releases.find((release) => release._id === select));
+    if (select) setItem(releases.find((release) => release.id === select));
   }, [select]);
 
   useEffect(() => {
     if (item) {
-      setId(item._id);
+      setId(item.id);
       setAlbumName(item.albumName);
       setProducedBy(item.producedBy);
       setPicUrl(item.picUrl);
@@ -78,8 +78,8 @@ const AdminEditRelease = () => {
             <option value={null}>Select</option>
             {releases.map((release) => {
               return (
-                <option value={release._id}>
-                  {release._id} - {release.albumName}
+                <option value={release.id}>
+                  {release.id} - {release.albumName}
                 </option>
               );
             })}

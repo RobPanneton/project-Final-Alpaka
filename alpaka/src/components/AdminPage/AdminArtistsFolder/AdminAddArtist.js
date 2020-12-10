@@ -17,7 +17,7 @@ const AdminAddArtist = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        _id: id,
+        id: id,
         name: name,
         picUrl: picUrl,
         soundUrl: soundUrl,

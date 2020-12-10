@@ -20,7 +20,7 @@ const AdminDeleteRelease = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        _id: id,
+        id: id,
       }),
     });
     setItem(null);
@@ -32,13 +32,13 @@ const AdminDeleteRelease = () => {
   };
 
   useEffect(() => {
-    if (select) setItem(releases.find((release) => release._id === select));
+    if (select) setItem(releases.find((release) => release.id === select));
   }, [select]);
 
   useEffect(() => {
     if (item) {
       setName(item.bandcampName);
-      setId(item._id);
+      setId(item.id);
     }
   }, [item]);
 
@@ -51,8 +51,8 @@ const AdminDeleteRelease = () => {
             <option value={null}>Select</option>
             {releases.map((release) => {
               return (
-                <option value={release._id}>
-                  {release._id} - {release.albumName}
+                <option value={release.id}>
+                  {release.id} - {release.albumName}
                 </option>
               );
             })}

@@ -5,14 +5,14 @@ import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
 
 const ReleasePage = () => {
-  const { _id } = useParams();
+  const { id } = useParams();
 
   const [release, setRelease] = useState(null);
 
   const releases = useSelector((state) => state?.content?.releases);
 
   useEffect(() => {
-    if (releases) setRelease(releases.find((item) => item._id === _id));
+    if (releases) setRelease(releases.find((item) => item.id === id));
   }, [releases]);
 
   return (
@@ -46,7 +46,7 @@ const ReleasePage = () => {
             ) : null}
 
             <CatNumber>
-              catalog number: <span>{release._id}</span>
+              catalog number: <span>{release.id}</span>
             </CatNumber>
             <BuyLinkTop href={release.bandcampUrl}>
               Click here to buy on Bandcamp

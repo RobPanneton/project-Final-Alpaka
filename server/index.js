@@ -10,8 +10,12 @@ const {
   editAboutText,
   getArtistsContent,
   addArtistContent,
+  editArtistContent,
+  deleteArtistContent,
   getReleasesContent,
   addReleasesContent,
+  editReleaseContent,
+  deleteReleaseContent,
 } = require("./handlers/handlers-index");
 
 const PORT = 4000;
@@ -33,10 +37,17 @@ express()
 
   .post("/api/artists/add-artist", addArtistContent)
 
+  .post("/api/artists/edit-artist/:id", editArtistContent)
+
+  .delete("/api/artists/delete-artist", deleteArtistContent)
+
   .get("/api/releases/get-content", getReleasesContent)
 
   .post("/api/releases/add-release", addReleasesContent)
 
+  .post("/api/releases/edit-release", editReleaseContent)
+
+  .delete("/api/releases/delete-release", deleteReleaseContent)
   //////////////////////////////////
 
   .get("*", (req, res) => {

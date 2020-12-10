@@ -93,7 +93,7 @@ function App() {
         <Route exact path="/releases">
           <Releases />
         </Route>
-        <Route path="/releases/:_id">
+        <Route path="/releases/:id">
           <ReleasePage />
         </Route>
         <Route path="/merch">

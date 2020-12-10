@@ -29,7 +29,7 @@ const AdminAddRelease = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        _id: id,
+        id: id,
         albumName: albumName,
         producedBy: producedBy,
         remixedBy: remixedBy,

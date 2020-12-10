@@ -148,6 +148,71 @@ const addArtistContent = async (req, res) => {
     });
   }
 };
+
+const editArtistContent = async (req, res) => {
+  const client = await MongoClient(MONGO_URI, options);
+  const id = req.params;
+  const query = { id };
+
+  let bodyObject = { ...req.body };
+  console.log(bodyObject);
+  console.log(id);
+
+  const newValues = { $set: { ...bodyObject } };
+
+  try {
+    await client.connect();
+
+    const db = await client.db("alpaka");
+
+    const results = await db.collection("artists").updateOne(id, newValues);
+
+    assert.equal(1, results.matchedCount);
+    // assert.equal(1, results.modifiedCount);
+
+    res.status(200).json({
+      status: 200,
+      message: "Artist has been successfully modified!",
+      id,
+      ...req.body,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 500,
+      message: "failure",
+      messsage1: err.message,
+    });
+  }
+
+  await client.close();
+};
+
+const deleteArtistContent = async (req, res) => {
+  const client = await MongoClient(MONGO_URI, options);
+  const id = req.params.id;
+
+  try {
+    await client.connect();
+
+    const db = await client.db("alpaka");
+
+    const result = await db.collection("artists").deleteOne({ id });
+
+    res.status(204).json({
+      status: 204,
+      data: result,
+      message: "success",
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 500,
+      message: "failure",
+    });
+  }
+
+  await client.close();
+  connect.client();
+};
 //////////////////////////////////////////////////////
 /////////////////////// ARTISTS ////////////////////////
 /////////////////////// RELEASES ////////////////////////
@@ -201,8 +266,66 @@ const addReleasesContent = async (req, res) => {
   }
 };
 
-const editReleaseContent = () => {
-  return;
+const editReleaseContent = async (req, res) => {
+  const client = await MongoClient(MONGO_URI, options);
+  const id = req.body.id;
+  const query = { id };
+
+  let bodyObject = { ...req.body };
+
+  const newValues = { $set: { ...bodyObject } };
+
+  try {
+    await client.connect();
+
+    const db = await client.db("alpaka");
+
+    const results = await db.collection("releases").updateOne(id, newValues);
+
+    assert.equal(1, results.matchedCount);
+    assert.equal(1, results.modifiedCount);
+
+    res.status(200).json({
+      status: 200,
+      message: "Release has been successfully modified!",
+      id,
+      ...req.body,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 500,
+      message: "failure",
+      messsage1: err.message,
+    });
+  }
+
+  await client.close();
+};
+
+const deleteReleaseContent = async (req, res) => {
+  const client = await MongoClient(MONGO_URI, options);
+  const id = req.params.id;
+
+  try {
+    await client.connect();
+
+    const db = await client.db("alpaka");
+
+    const result = await db.collection("releases").deleteOne({ id });
+
+    res.status(204).json({
+      status: 204,
+      data: result,
+      message: "success",
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 500,
+      message: "failure",
+    });
+  }
+
+  await client.close();
 };
 
 //////////////////////////////////////////////////////
@@ -215,6 +338,10 @@ module.exports = {
   editAboutText,
   getArtistsContent,
   addArtistContent,
+  editArtistContent,
+  deleteArtistContent,
   getReleasesContent,
   addReleasesContent,
+  editReleaseContent,
+  deleteReleaseContent,
 };

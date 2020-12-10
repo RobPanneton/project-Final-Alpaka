@@ -12,17 +12,19 @@ const AdminEditArtist = () => {
   const [picUrl, setPicUrl] = useState("");
   const [soundUrl, setSoundUrl] = useState("");
   const [id, setId] = useState("");
+
   const [select, setSelect] = useState(null);
   const [item, setItem] = useState(null);
+  const [originalId, setOriginalId] = useState(null);
 
   const handleSubmit = () => {
-    fetch(`/api/artists/edit-artist`, {
+    fetch(`/api/artists/edit-artist/${originalId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        _id: id,
+        id: id,
         name: name,
         picUrl: picUrl,
         soundUrl: soundUrl,
@@ -43,7 +45,8 @@ const AdminEditArtist = () => {
       setName(item.name);
       setPicUrl(item.picUrl);
       setSoundUrl(item.soundUrl);
-      setId(item._id);
+      setId(item.id);
+      setOriginalId(item.id);
     }
   }, [item]);
 

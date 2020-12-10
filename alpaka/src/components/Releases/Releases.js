@@ -18,7 +18,7 @@ const Releases = () => {
                 <ReleaseDiv
                   key={index}
                   onHover={(e) => e.stopPropagation()}
-                  to={`/releases/${release._id}`}
+                  to={`/releases/${release.id}`}
                 >
                   <ReleasePhoto
                     src={release.picUrl}

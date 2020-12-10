@@ -20,7 +20,7 @@ const AdminDeleteArtist = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        _id: id,
+        id: id,
       }),
     });
     setItem(null);
@@ -38,7 +38,7 @@ const AdminDeleteArtist = () => {
   useEffect(() => {
     if (item) {
       setName(item.name);
-      setId(item._id);
+      setId(item.id);
     }
   }, [item]);
 
