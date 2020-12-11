@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { COLORS } from "../../constants";
 
 const About = () => {
   const aboutText = useSelector((state) => state?.content?.about);
@@ -14,6 +15,7 @@ const About = () => {
           </AboutWrapper>
           <DividerDiv></DividerDiv>
           <ContactWrapper>
+            <h1>Reach Out!</h1>
             <form>
               <Input type="text" name="name" placeholder="Your Name" />
 
@@ -79,6 +81,13 @@ const ContactWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+  }
+
+  h1 {
+    color: ${COLORS.white};
+    font-size: 24px;
+    text-align: right;
+    padding-bottom: 4px;
   }
 `;
 

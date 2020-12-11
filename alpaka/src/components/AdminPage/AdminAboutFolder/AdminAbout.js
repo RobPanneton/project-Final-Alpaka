@@ -4,12 +4,6 @@ import { COLORS } from "../../../constants";
 import AdminAboutEdit from "./AdminAboutEdit";
 
 const AdminAbout = () => {
-  const [inputValue, setInputValue] = useState(null);
-
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
   return (
     <Wrapper>
       <Header>
