@@ -18,30 +18,8 @@ const store = createStore(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
-
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 const persistor = persistStore(store);
 
 export default { store, persistor };
-
-// const persistedReducer = persistedReducer(persistConfig, rootReducer);
-
-// export default () => {
-//   let store = createStore(persistedReducer);
-//   let persistor = persistStore(store)
-//   return {store,persistor}
-// }
-
-// const configureStore = () => {
-//   const store = createStore(
-//     reducer,
-//     initialState,
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-//   );
-
-//   return store;
-// };
-
-// export default configureStore;
