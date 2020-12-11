@@ -19,76 +19,76 @@ const AdminIndex = () => {
   console.log(user);
 
   return (
-    <Wrapper>
-      <AdminNavbar />
-      <TopDiv>
-        <h1>Admin Page</h1>
-      </TopDiv>
-      <AdminContent>
-        <Switch>
-          <Route exact path="/admin/">
-            <AdminWelcome />
-          </Route>
-          <Route path="/admin/home">
-            <AdminHome />
-          </Route>
-          <Route path="/admin/events">
-            <AdminEvents />
-          </Route>
-          <Route path="/admin/artists">
-            <AdminArtists />
-          </Route>
-          <Route path="/admin/releases">
-            <AdminReleases />
-          </Route>
-          <Route path="/admin/merch">
-            <AdminMerch />
-          </Route>
-          <Route path="/admin/about">
-            <AdminAbout />
-          </Route>
-        </Switch>
-      </AdminContent>
-    </Wrapper>
-    // <>
-    //   {user ? (
-    //     <>
-    //       <Wrapper>
-    //         <AdminNavbar />
-    //         <TopDiv>
-    //           <h1>Admin Page</h1>
-    //         </TopDiv>
-    //         <AdminContent>
-    //           <Switch>
-    //             <Route exact path="/admin/">
-    //               <AdminWelcome />
-    //             </Route>
-    //             <Route path="/admin/home">
-    //               <AdminHome />
-    //             </Route>
-    //             <Route path="/admin/events">
-    //               <AdminEvents />
-    //             </Route>
-    //             <Route path="/admin/artists">
-    //               <AdminArtists />
-    //             </Route>
-    //             <Route path="/admin/releases">
-    //               <AdminReleases />
-    //             </Route>
-    //             <Route path="/admin/merch">
-    //               <AdminMerch />
-    //             </Route>
-    //             <Route path="/admin/about">
-    //               <AdminAbout />
-    //             </Route>
-    //           </Switch>
-    //         </AdminContent>
-    //       </Wrapper>
-    //     </>
-    //   ) : (
-    //     <NOPE />
-    //   )}
-    // </>
+    // <Wrapper>
+    //   <AdminNavbar />
+    //   <TopDiv>
+    //     <h1>Admin Page</h1>
+    //   </TopDiv>
+    //   <AdminContent>
+    //     <Switch>
+    //       <Route exact path="/admin/">
+    //         <AdminWelcome />
+    //       </Route>
+    //       <Route path="/admin/home">
+    //         <AdminHome />
+    //       </Route>
+    //       <Route path="/admin/events">
+    //         <AdminEvents />
+    //       </Route>
+    //       <Route path="/admin/artists">
+    //         <AdminArtists />
+    //       </Route>
+    //       <Route path="/admin/releases">
+    //         <AdminReleases />
+    //       </Route>
+    //       <Route path="/admin/merch">
+    //         <AdminMerch />
+    //       </Route>
+    //       <Route path="/admin/about">
+    //         <AdminAbout />
+    //       </Route>
+    //     </Switch>
+    //   </AdminContent>
+    // </Wrapper>
+    <>
+      {user ? (
+        <>
+          <Wrapper>
+            <AdminNavbar />
+            <TopDiv>
+              <h1>Admin Page</h1>
+            </TopDiv>
+            <AdminContent>
+              <Switch>
+                <Route exact path="/admin/">
+                  <AdminWelcome />
+                </Route>
+                <Route path="/admin/home">
+                  <AdminHome />
+                </Route>
+                <Route path="/admin/events">
+                  <AdminEvents />
+                </Route>
+                <Route path="/admin/artists">
+                  <AdminArtists />
+                </Route>
+                <Route path="/admin/releases">
+                  <AdminReleases />
+                </Route>
+                <Route path="/admin/merch">
+                  <AdminMerch />
+                </Route>
+                <Route path="/admin/about">
+                  <AdminAbout />
+                </Route>
+              </Switch>
+            </AdminContent>
+          </Wrapper>
+        </>
+      ) : (
+        <NOPE />
+      )}
+    </>
   );
 };
 

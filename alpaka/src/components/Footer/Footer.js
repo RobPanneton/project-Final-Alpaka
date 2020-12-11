@@ -11,8 +11,6 @@ const Footer = () => {
   const dispatch = useDispatch();
 
   const responseGoogle = (response) => {
-    console.log(response);
-    console.log(response.profileObj.email);
     dispatch(loginUser(response.profileObj.email));
   };
 
