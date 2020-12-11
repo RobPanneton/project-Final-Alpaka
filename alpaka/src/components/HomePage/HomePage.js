@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import theHerdBanner from "../../assets/TheHerdBannerV2.jpg";
+import { COLORS } from "../../constants";
 
 const HomePage = () => {
   return (
     <Wrapper>
-      <Alpaka>ALPAKA: home</Alpaka>
+      <Banner src={theHerdBanner}></Banner>
+      <h1>Latest Releases</h1>
+      <LatestReleasesDiv></LatestReleasesDiv>
     </Wrapper>
   );
 };
@@ -12,12 +16,32 @@ const HomePage = () => {
 const Wrapper = styled.div`
   background-color: black;
   width: 100%;
-  height: 600px;
+  height: auto;
   text-align: center;
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  padding: 100px 0 50px 0;
+
+  h1 {
+    padding: 48px 0 24px 0;
+    font-size: 24px;
+    font-weight: 200;
+    color: ${COLORS.white};
+  }
+`;
+
+const Banner = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+const LatestReleasesDiv = styled.div`
+  padding: 52px 120px 50px 120px;
+  width: 100%;
+  height: auto;
 `;
 
 const Alpaka = styled.h1`
