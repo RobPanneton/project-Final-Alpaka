@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
@@ -6,6 +6,10 @@ import { COLORS } from "../../constants";
 
 const Releases = () => {
   const releases = useSelector((state) => state?.content?.releases);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Wrapper>

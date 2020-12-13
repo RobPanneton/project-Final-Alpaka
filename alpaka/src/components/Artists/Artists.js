@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { COLORS } from "../../constants";
 
 const Artists = () => {
   const artists = useSelector((state) => state?.content?.artists);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Wrapper>

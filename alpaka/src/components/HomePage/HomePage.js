@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import theHerdBanner from "../../assets/TheHerdBannerV2.jpg";
 import { COLORS } from "../../constants";
 
 const HomePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Wrapper>
       <Banner src={theHerdBanner}></Banner>

@@ -16,8 +16,6 @@ import NOPE from "./NOPE";
 const AdminIndex = () => {
   const user = useSelector((state) => state?.user?.isAdmin);
 
-  console.log(user);
-
   return (
     <>
       {user ? (

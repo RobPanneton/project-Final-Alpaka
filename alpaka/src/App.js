@@ -64,22 +64,17 @@ function App() {
     getReleasesContent();
   }, []);
 
+  const navRegEx = /admin/;
+
   return (
     <>
       <GlobalStyle />
 
-      {window.location.pathname !== "/admin/" &&
-        window.location.pathname !== "/admin" &&
-        window.location.pathname !== "/admin/home" &&
-        window.location.pathname !== "/admin/events" &&
-        window.location.pathname !== "/admin/artists" &&
-        window.location.pathname !== "/admin/releases" &&
-        window.location.pathname !== "/admin/merch" &&
-        window.location.pathname !== "/admin/about" && (
-          <>
-            <Navbar />
-          </>
-        )}
+      {!navRegEx.test(window.location.pathname) && (
+        <>
+          <Navbar />
+        </>
+      )}
 
       <Switch>
         <Route exact path="/">
@@ -108,21 +103,27 @@ function App() {
         </Route>
       </Switch>
 
-      {window.location.pathname !== "/admin/" &&
-        window.location.pathname !== "/admin" &&
-        window.location.pathname !== "/admin/home" &&
-        window.location.pathname !== "/admin/events" &&
-        window.location.pathname !== "/admin/artists" &&
-        window.location.pathname !== "/admin/releases" &&
-        window.location.pathname !== "/admin/merch" &&
-        window.location.pathname !== "/admin/about" && (
-          <>
-            <Footer />
-          </>
-        )}
+      {!navRegEx.test(window.location.pathname) && (
+        <>
+          <Footer />
+        </>
+      )}
     </>
   );
 }
+
+// {window.location.pathname !== "/admin/" &&
+// window.location.pathname !== "/admin" &&
+// window.location.pathname !== "/admin/home" &&
+// window.location.pathname !== "/admin/events" &&
+// window.location.pathname !== "/admin/artists" &&
+// window.location.pathname !== "/admin/releases" &&
+// window.location.pathname !== "/admin/merch" &&
+// window.location.pathname !== "/admin/about" && (
+//   <>
+//     <Footer />
+//   </>
+// )}
 
 const Wrapper = styled.div`
   width: 100%;

@@ -44,6 +44,20 @@ const AdminAddRelease = () => {
     });
   };
 
+  const clearFields = () => {
+    setId("");
+    setAlbumName("");
+    setProducedBy([]);
+    setRemixedBy([]);
+    setPicUrl("");
+    setBandcampUrl("");
+    setBeatportUrl("");
+    setBandcampiFrameUrl("");
+    setBandcampHref("");
+    setBandcampName("");
+    setBandcampNumber("");
+  };
+
   return (
     <Wrapper>
       {tab ? (
@@ -52,6 +66,7 @@ const AdminAddRelease = () => {
           <Form
             onSubmit={(e) => {
               e.preventDefault();
+              clearFields();
             }}
           >
             <Label>
@@ -125,7 +140,7 @@ const AdminAddRelease = () => {
                         onChange={(e) => {
                           let newArr = [...remixedBy];
                           newArr[index] = e.target.value;
-                          setProducedBy(newArr);
+                          setRemixedBy(newArr);
                         }}
                       ></MultiNameInput>
                     );

@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
 
 const About = () => {
   const aboutText = useSelector((state) => state?.content?.about);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Wrapper>
