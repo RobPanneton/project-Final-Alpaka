@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
+import Loader from "../../Loader";
 
 const About = () => {
   const aboutText = useSelector((state) => state?.content?.about);
@@ -37,7 +38,7 @@ const About = () => {
         </>
       ) : (
         <>
-          <h1>loading...</h1>
+          <Loader />
         </>
       )}
     </Wrapper>

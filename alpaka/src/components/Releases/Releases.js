@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 import { COLORS } from "../../constants";
+import Loader from "../../Loader";
 
 const Releases = () => {
   const releases = useSelector((state) => state?.content?.releases);
@@ -34,7 +35,9 @@ const Releases = () => {
             })}
           </ReleasesGrid>
         </>
-      ) : null}
+      ) : (
+        <Loader />
+      )}
     </Wrapper>
   );
 };
