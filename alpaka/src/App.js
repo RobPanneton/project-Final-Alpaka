@@ -20,6 +20,7 @@ import {
   populateReleasesContent,
 } from "./actions";
 import Footer from "./components/Footer/Footer";
+import Loader from "./Loader";
 
 function App() {
   const dispatch = useDispatch();
@@ -100,6 +101,9 @@ function App() {
         </Route>
         <Route path="/admin">
           <AdminPage />
+        </Route>
+        <Route path="/loading">
+          <Loader />
         </Route>
       </Switch>
 
