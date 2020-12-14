@@ -92,6 +92,10 @@ const NavOption = styled(NavLink)`
   font-weight: 600;
   text-decoration: none;
   color: ${COLORS.white};
+
+  &.active {
+    text-decoration: underline;
+  }
 `;
 
 export default Navbar;
