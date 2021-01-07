@@ -1,10 +1,10 @@
-# Bootcamp - FinalProject: Alpaka
+# Bootcamp - FinalProject: AlpaKa
 
 <img src ="./assets/alpakapic1.png" style="width:400px">
 
 ## Description
 
-First draft for music label **Alpaka MuziK**'s website. Visit artist page to visit label artists' soundcloud pages. Releases page visit content presentation with an integrated music player to listen to the label releases.
+First draft for music label **AlpaKa MuziK**'s website. Visit artist page to visit label artists' soundcloud pages. Releases page visit content presentation with an integrated music player to listen to the label releases.
 
 Admin page. Administrator self-sufficiency for updating content.&nbsp;
 &nbsp;
