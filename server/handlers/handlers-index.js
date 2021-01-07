@@ -152,7 +152,6 @@ const addArtistContent = async (req, res) => {
 const editArtistContent = async (req, res) => {
   const client = await MongoClient(MONGO_URI, options);
   const id = req.params;
-  const query = { id };
 
   let bodyObject = { ...req.body };
 

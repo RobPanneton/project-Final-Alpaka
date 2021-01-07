@@ -12,7 +12,7 @@ const AdminWelcome = () => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   background-color: ${COLORS.white};
   display: flex;
   align-items: center;

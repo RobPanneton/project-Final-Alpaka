@@ -25,6 +25,7 @@ express()
   .use(bodyParser.json())
   .use(express.urlencoded({ extended: false }))
   .use(cors())
+
   .use("/", express.static(__dirname + "/"))
 
   .post("/api/about/add-text", createAboutText)

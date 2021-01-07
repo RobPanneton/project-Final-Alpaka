@@ -94,7 +94,7 @@ const NavOption = styled(NavLink)`
   color: ${COLORS.white};
 
   &.active {
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
 `;
 
