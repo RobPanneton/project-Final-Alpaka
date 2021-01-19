@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import theHerdBanner from "../../assets/TheHerdBannerV2.jpg";
 import { COLORS } from "../../constants";
+import Loader from "../../Loader";
 
 const HomePage = () => {
   const newReleases = useSelector((state) => {
@@ -22,9 +23,10 @@ const HomePage = () => {
     <Wrapper>
       <Banner src={theHerdBanner}></Banner>
       <h1>Latest Releases</h1>
-      <LatestReleasesDiv>
-        {newReleases ? (
-          <>
+
+      {newReleases ? (
+        <>
+          <LatestReleasesDiv>
             <ReleasesGrid>
               {newReleases.map((release, index) => {
                 return (
@@ -42,9 +44,11 @@ const HomePage = () => {
                 );
               })}
             </ReleasesGrid>
-          </>
-        ) : null}
-      </LatestReleasesDiv>
+          </LatestReleasesDiv>
+        </>
+      ) : (
+        <Loader />
+      )}
       <InfoAndMix>
         <Info>
           <p>{aboutInfo}</p>
